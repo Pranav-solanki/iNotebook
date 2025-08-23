@@ -5,17 +5,18 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Notestate from "./context/Notes/notestate";
 
-
 function App() {
   return (
     <Notestate>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </Router>
+      <div className="container">
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </Router>
+      </div>
     </Notestate>
   );
 }
