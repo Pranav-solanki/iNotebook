@@ -4,19 +4,20 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import About from "./components/About";
 import Notestate from "./context/Notes/notestate";
-
+import Alert from "./components/Alert";
 function App() {
   return (
     <Notestate>
-        <Router>
-          <Navbar />
-      <div className="container">
+      <Router>
+        <Navbar />
+        <Alert message="This is my iNotebook app"/>
+        <div className="container">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
           </Routes>
-      </div>
-        </Router>
+        </div>
+      </Router>
     </Notestate>
   );
 }
