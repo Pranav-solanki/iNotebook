@@ -1,11 +1,22 @@
+import { useState } from "react";
 import Notecontext from "./notecontext";
-
 const Notestate = (props) => {
-  const state = {
-    name: "pranav",
-  };
+  const defaultnotes = [
+    {
+      _id: "68a4b6370f60738d84b360b2",
+      user: "68a4a79d0f60738d84b360ac",
+      title: "My title",
+      description: "Pleasehsh add a note",
+      tag: "personel",
+      date: "2025-08-19T17:36:55.396Z",
+      __v: 0,
+    },
+  ];
+  const [notes, setnotes] = useState(defaultnotes);
   return (
-    <Notecontext.Provider value={state}>{props.children}</Notecontext.Provider>
+    <Notecontext.Provider value={{ notes, setnotes }}>
+      {props.children}
+    </Notecontext.Provider>
   );
 };
 export default Notestate;

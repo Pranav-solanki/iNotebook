@@ -8,15 +8,15 @@ import Notestate from "./context/Notes/notestate";
 function App() {
   return (
     <Notestate>
-      <div className="container">
         <Router>
           <Navbar />
+      <div className="container">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
           </Routes>
-        </Router>
       </div>
+        </Router>
     </Notestate>
   );
 }
