@@ -12,26 +12,29 @@ export default function Notes() {
   }, []);
 
   const [note, setnote] = useState({
+    id: "",
     etitle: "",
     edescription: "",
     etag: "",
   });
   const updatenote = (currnote) => {
-    ref.current.click();
     setnote({
+      id: currnote._id,
       etitle: currnote.title,
       edescription: currnote.description,
       etag: currnote.tag,
     });
+    ref.current.click();
   };
   const ref = useRef();
+  const refclose = useRef();
   const onchange = (e) => {
     setnote({ ...note, [e.target.name]: e.target.value });
   };
   const handleclick = (e) => {
-    e.preventDefault();
-    console.log("i am clicked");
-    editnote(note._id, note.etitle, note.edescription, note.etag);
+    // console.log("i am clicked");
+    editnote(note.id, note.etitle, note.edescription, note.etag);
+    refclose.current.click();
 
     // addnote(note.title, note.description, note.tag);
   };
@@ -52,7 +55,7 @@ export default function Notes() {
       <div
         className="modal fade"
         id="exampleModal"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
@@ -118,6 +121,7 @@ export default function Notes() {
                 type="button"
                 className="btn btn-secondary"
                 data-bs-dismiss="modal"
+                ref={refclose}
               >
                 Close
               </button>

@@ -15,7 +15,7 @@ const Notestate = (props) => {
       },
       body: JSON.stringify({ title, description, tag }),
     });
-    console.log("works well");
+    // console.log("works well");
     const note = {
       _id: "68a4b6370f60738d84b360b2",
       user: "68a4a79d0f60738d84b360ac",
@@ -38,7 +38,7 @@ const Notestate = (props) => {
       },
     });
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
     setnotes(json);
   };
   const editnote = async (id, title, description, tag) => {
@@ -51,16 +51,17 @@ const Notestate = (props) => {
       },
       body: JSON.stringify({ title, description, tag }),
     });
-    const result = await response.json();
-
-    for (let index = 0; index < notes.length; index++) {
-      const element = notes[index];
+    const newnotes = JSON.parse(JSON.stringify(notes));
+    for (let index = 0; index < newnotes.length; index++) {
+      const element = newnotes[index];
       if ((element._id = id)) {
-        element.title = title;
-        element.description = description;
-        element.tag = tag;
+        newnotes[index].title = title;
+        newnotes[index].description = description;
+        newnotes[index].tag = tag;
+        break;
       }
     }
+    setnotes(newnotes);
   };
   const deletenote = async (id) => {
     const response = await fetch(`${host}/api/notes/deletenote/${id}`, {
