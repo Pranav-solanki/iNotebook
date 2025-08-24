@@ -4,13 +4,17 @@ import { useContext } from "react";
 const Addnote = () => {
   const context = useContext(notecontext);
   const { addnote } = context;
-  const [note, setnote] = useState({ title: "", description: "", tag: "default" });
+  const [note, setnote] = useState({
+    title: "",
+    description: "",
+    tag: "default",
+  });
   const onchange = (e) => {
     setnote({ ...note, [e.target.name]: e.target.value });
   };
   const handleclick = (e) => {
     e.preventDefault();
-    addnote(note.title,note.description,note.tag);
+    addnote(note.title, note.description, note.tag);
   };
   return (
     <div>
@@ -18,7 +22,7 @@ const Addnote = () => {
         <h1>Welcome to the Home Page</h1>
         <form>
           <div className="mb-3">
-            <label htmlFor="title" className="form-label"></label>
+            <label htmlFor="title" className="form-label">Title</label>
             <input
               type="text"
               className="form-control"
@@ -29,7 +33,7 @@ const Addnote = () => {
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="description" className="form-label"></label>
+            <label htmlFor="description" className="form-label">Description</label>
             <input
               type="text"
               className="form-control"
@@ -38,16 +42,17 @@ const Addnote = () => {
               onChange={onchange}
             />
           </div>
-          <div className="mb-3 form-check">
+          <div className="mb-3">
+            <label htmlFor="tag" className="form-label">Tag</label>
             <input
-              type="checkbox"
-              className="form-check-input"
-              id="exampleCheck1"
+              type="text"
+              className="form-control"
+              id="tag"
+              name="tag"
+              onChange={onchange}
             />
-            <label className="form-check-label" htmlFor="exampleCheck1">
-              Check me out
-            </label>
           </div>
+
           <button
             onClick={handleclick}
             type="submit"
