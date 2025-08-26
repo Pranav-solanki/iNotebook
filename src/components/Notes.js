@@ -35,6 +35,7 @@ export default function Notes() {
     // console.log("i am clicked");
     editnote(note.id, note.etitle, note.edescription, note.etag);
     refclose.current.click();
+  
 
     // addnote(note.title, note.description, note.tag);
   };
@@ -129,6 +130,9 @@ export default function Notes() {
                 onClick={handleclick}
                 type="button"
                 className="btn btn-primary"
+                disabled={
+                  note.etitle.length < 3 || note.edescription.length < 5
+                }
               >
                 Save changes
               </button>
