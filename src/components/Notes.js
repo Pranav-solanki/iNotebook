@@ -4,7 +4,7 @@ import notecontext from "../context/Notes/notecontext";
 import NoteItem from "./Noteitem";
 import Addnote from "./Addnote";
 import { useEffect } from "react";
-export default function Notes() {
+export default function Notes(props) {
   const context = useContext(notecontext);
   const { notes, getnote, editnote } = context;
   useEffect(() => {
@@ -33,16 +33,15 @@ export default function Notes() {
   };
   const handleclick = (e) => {
     // console.log("i am clicked");
+    props.showalert("Note updated successfully", "success");
     editnote(note.id, note.etitle, note.edescription, note.etag);
     refclose.current.click();
-  
 
     // addnote(note.title, note.description, note.tag);
   };
   return (
     <>
-      <Addnote />
-
+      <Addnote showalert={props.showalert} />
       <button
         ref={ref}
         type="button"
@@ -145,7 +144,12 @@ export default function Notes() {
         <h2>Your Notes</h2>
         {notes.map((note) => {
           return (
-            <NoteItem key={note._id} note={note} updatenote={updatenote} />
+            <NoteItem
+              key={note._id}
+              note={note}
+              updatenote={updatenote}
+              showalert={props.showalert}
+            />
           );
         })}
       </div>

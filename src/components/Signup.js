@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Signup() {
+export default function Signup(props) {
+  const { showalert } = props;
   let history = useNavigate();
   const [creadential, setcreadential] = useState({
     name: "",
@@ -26,6 +27,13 @@ export default function Signup() {
     });
     const json = await response.json();
     console.log(json);
+    if (json.success) {
+      localStorage.setItem("token", json.authtoken);
+      showalert("account created successfully", "success");
+      history("/");
+    } else {
+      showalert("Not created something went wrong", "danger");
+    }
   };
   return (
     <>

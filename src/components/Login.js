@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Login() {
-    let history =useNavigate();
+export default function Login(props) {
+  const { showalert } = props;
+  let history = useNavigate();
   const [creadential, setcreadential] = useState({ email: "", password: "" });
   const onclick = (e) => {
     setcreadential({ ...creadential, [e.target.name]: e.target.value });
@@ -22,10 +23,11 @@ export default function Login() {
     const json = await response.json();
     console.log(json);
     if (json.success) {
-        localStorage.setItem('token',json.authtoken);
-        history('/')
+      localStorage.setItem("token", json.authtoken);
+      showalert("loggedin successfully", "success");
+      history("/");
     } else {
-      alert("invalid cred");
+      showalert("invalid credential", "danger");
     }
   };
   return (

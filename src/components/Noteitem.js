@@ -6,6 +6,7 @@ export default function Noteitem(props) {
   const { deletenote } = context;
   const { note, updatenote } = props;
   const handleclick = (e) => {
+    props.showalert("Deleted successfully", "success");
     deletenote(note._id);
   };
   return (
