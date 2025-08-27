@@ -10,8 +10,7 @@ const Notestate = (props) => {
       method: "POST", // or 'POST', 'PUT', 'DELETE', etc.
       headers: {
         "Content-Type": "application/json",
-        "auth-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjhhNGE3OWQwZjYwNzM4ZDg0YjM2MGFjIn0sImlhdCI6MTc1NTYyMTI3N30.payiBLKX_qUk52HpULJX1A18MLzsym-Q7oMaotyY3m4",
+        "auth-token": localStorage.getItem("token"),
       },
       body: JSON.stringify({ title, description, tag }),
     });
@@ -34,8 +33,7 @@ const Notestate = (props) => {
       method: "GET", // or 'POST', 'PUT', 'DELETE', etc.
       headers: {
         "Content-Type": "application/json",
-        "auth-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjhhNGE3OWQwZjYwNzM4ZDg0YjM2MGFjIn0sImlhdCI6MTc1NTYyMTI3N30.payiBLKX_qUk52HpULJX1A18MLzsym-Q7oMaotyY3m4",
+        "auth-token": localStorage.getItem("token"),
       },
     });
     const json = await response.json();
@@ -47,15 +45,14 @@ const Notestate = (props) => {
       method: "PUT", // or 'POST', 'PUT', 'DELETE', etc.
       headers: {
         "Content-Type": "application/json",
-        "auth-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjhhNGE3OWQwZjYwNzM4ZDg0YjM2MGFjIn0sImlhdCI6MTc1NTYyMTI3N30.payiBLKX_qUk52HpULJX1A18MLzsym-Q7oMaotyY3m4",
+        "auth-token": localStorage.getItem("token"),
       },
       body: JSON.stringify({ title, description, tag }),
     });
     const newnotes = JSON.parse(JSON.stringify(notes));
     for (let index = 0; index < newnotes.length; index++) {
       const element = newnotes[index];
-      if ((element._id = id)) {
+      if (element._id == id) {
         newnotes[index].title = title;
         newnotes[index].description = description;
         newnotes[index].tag = tag;
@@ -69,8 +66,7 @@ const Notestate = (props) => {
       method: "DELETE", // or 'POST', 'PUT', 'DELETE', etc.
       headers: {
         "Content-Type": "application/json",
-        "auth-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjhhNGE3OWQwZjYwNzM4ZDg0YjM2MGFjIn0sImlhdCI6MTc1NTYyMTI3N30.payiBLKX_qUk52HpULJX1A18MLzsym-Q7oMaotyY3m4",
+        "auth-token": localStorage.getItem("token"),
       },
     });
     // const result = await response.json();

@@ -10,17 +10,17 @@ export default function Noteitem(props) {
     deletenote(note._id);
   };
   return (
-    <div className="col-md-3">
-      <div className="card my-3">
-        <div className="card-body">
+    <div className="col-md-3 card-container">
+      <div className="card my-3 note-card">
+        <div className="card-body ">
           <div className="d-flex align-items-center">
             <h5 className="card-title">{note.title}</h5>
-            <i onClick={handleclick} className="fa-solid fa-trash"></i>
+            <i onClick={handleclick} className="fa-solid fa-trash action-icon"></i>
             <i
               onClick={() => {
                 updatenote(note);
               }}
-              className="fa-solid fa-pen-to-square"
+              className="fa-solid fa-pen-to-square action-icon"
             ></i>
           </div>
           <p className="card-text">{note.description}</p>

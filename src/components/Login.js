@@ -32,38 +32,41 @@ export default function Login(props) {
   };
   return (
     <>
-      <form onSubmit={handlesubmit}>
-        <div className="mb-3">
-          <label htmlFor="email" className="form-label">
-            Email address
-          </label>
-          <input
-            type="email"
-            className="form-control"
-            id="email"
-            name="email"
-            aria-describedby="emailHelp"
-            value={creadential.email}
-            onChange={onclick}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="password" className="form-label">
-            Password
-          </label>
-          <input
-            value={creadential.password}
-            type="password"
-            className="form-control"
-            id="password"
-            name="password"
-            onChange={onclick}
-          />
-        </div>
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
-      </form>
+      <div className="login-container">
+        <h2 className="mb-4">Login to Your Account</h2>
+        <form onSubmit={handlesubmit}>
+          <div className="mb-3">
+            <label htmlFor="email" className="form-label">
+              Email address
+            </label>
+            <input
+              type="email"
+              className="form-control"
+              id="email"
+              name="email"
+              aria-describedby="emailHelp"
+              value={creadential.email}
+              onChange={onclick}
+            />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="password" className="form-label">
+              Password
+            </label>
+            <input
+              value={creadential.password}
+              type="password"
+              className="form-control"
+              id="password"
+              name="password"
+              onChange={onclick}
+            />
+          </div>
+          <button type="submit" className="btn btn-primary">
+            Submit
+          </button>
+        </form>
+      </div>
     </>
   );
 }
