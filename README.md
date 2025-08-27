@@ -3,6 +3,15 @@
 **iNotebook** is a secure and user-friendly Notes Application built with the MERN stack (MongoDB, Express, React, Node.js). It features JWT authentication and supports full CRUD operations for personal notes.
 
 ---
+### ⚠️ Disclaimer
+
+This project is a personal full-stack demo for learning purposes.  
+It uses authentication only to demonstrate JWT-based login and protected routes.
+
+✅ Do not use real credentials  
+✅ No personal data is stored or used in any way  
+✅ This is not a commercial or production-ready application
+
 
 ## 🗂️ Project Structure
 
