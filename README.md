@@ -1,5 +1,5 @@
 
-TO WATCH MY WORK LINK ON ABOVE URL AND ON THE URL WRITE BOX JUST AFTER GITHUB AND THEN YOU CAN PREVIEW MY WORK
+TO WATCH MY WORK OPEN THIS LINK https://codesandbox.io/p/sandbox/github/Pranav-solanki/iNotebook
 # iNotebook – A Full-Stack Notes App (MERN Stack)
 
 **iNotebook** is a secure and user-friendly Notes Application built with the MERN stack (MongoDB, Express, React, Node.js). It features JWT authentication and supports full CRUD operations for personal notes.
